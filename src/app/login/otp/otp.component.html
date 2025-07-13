@@ -3,11 +3,11 @@
   <mat-card class="login-card">
     <mat-card-content>
 
-      <img 
-        class="illustration" 
-        src="assets/nexus-logo.png" 
+      <img
+        class="illustration"
+        src="assets/nexus-logo.png"
         alt="Nexus Platform Illustration">
-      
+
       <div class="logo">
         <span class="logo-check">V</span>
         <span>Nexus</span>
@@ -19,31 +19,35 @@
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Enter OTP</mat-label>
           <input matInput type="password"
-           placeholder="******"
-           required
-           [(ngModel)]="otp"
-           maxlength="6"
+            placeholder="******"
+            required
+            [(ngModel)]="otp"
+            maxlength="6"
             minlength="6"
-           name="otp"
-           >
+            name="otp"
+            >
           <mat-icon matSuffix>person_outline</mat-icon>
         </mat-form-field>
 
-         <div class="otp-actions" >
-    <a >Change Email Id</a>
-    <span >
-      Resend OTP 
-      <span class="timer" *ngIf="timer > 0" >in {{timer}} second</span>
-      <a class="timer-reset" *ngIf="timer === 0"  (click)="resendOtp()">Resend</a>
-    </span>
-  </div>
+        <div class="otp-actions" >
+          <a >Change Email Id</a>
+          <span >
+            Resend OTP
+            @if (timer > 0) {
+              <span class="timer" >in {{timer}} second</span>
+            }
+            @if (timer === 0) {
+              <a class="timer-reset"  (click)="resendOtp()">Resend</a>
+            }
+          </span>
+        </div>
 
         <button mat-raised-button class="submit-btn full-width" type="submit" [disabled]="timer === 0">
           Proceed
         </button>
 
       </form>
-      
+
     </mat-card-content>
   </mat-card>
 

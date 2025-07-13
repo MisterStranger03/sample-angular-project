@@ -16,43 +16,48 @@
     </div>
   </header>
 
-  
+
   <mat-sidenav-container class="dashboard-container">
-    
-    
+
+
     <mat-sidenav mode="side" opened class="sidenav" [class.expanded]="isSidenavExpanded">
-      
-      
+
+
       <button mat-fab class="expand-button" (click)="toggleSidenav()">
         <mat-icon>{{ isSidenavExpanded ? 'chevron_left' : 'chevron_right' }}</mat-icon>
       </button>
-      
-     
+
+
       <nav class="nav-list">
         <ul>
-          <ng-container *ngFor="let item of navItems">
-            <li *ngIf="!item.children || item.children.length === 0">
-              <a class="nav-link" [routerLink]="item.route" routerLinkActive="active">
-                <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
-                <span class="nav-text">{{ item.name }}</span>
-              </a>
-            </li>
-    
-            <li *ngIf="item.children && item.children.length > 0">
-              <a class="nav-link" (click)="toggleMenu(item.name)" [class.active]="activeMenu === item.name">
-                <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
-                <span class="nav-text">{{ item.name }}</span>
-                <mat-icon class="chevron-icon">{{ activeMenu === item.name ? 'expand_less' : 'expand_more' }}</mat-icon>
-              </a>
-              <ul class="submenu" [class.open]="isSidenavExpanded && activeMenu === item.name">
-                <li *ngFor="let child of item.children">
-                    <a class="nav-link sub-link" [routerLink]="child.route" routerLinkActive="active-child">
+          @for (item of navItems; track item) {
+            @if (!item.children || item.children.length === 0) {
+              <li>
+                <a class="nav-link" [routerLink]="item.route" routerLinkActive="active">
+                  <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
+                  <span class="nav-text">{{ item.name }}</span>
+                </a>
+              </li>
+            }
+            @if (item.children && item.children.length > 0) {
+              <li>
+                <a class="nav-link" (click)="toggleMenu(item.name)" [class.active]="activeMenu === item.name">
+                  <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
+                  <span class="nav-text">{{ item.name }}</span>
+                  <mat-icon class="chevron-icon">{{ activeMenu === item.name ? 'expand_less' : 'expand_more' }}</mat-icon>
+                </a>
+                <ul class="submenu" [class.open]="isSidenavExpanded && activeMenu === item.name">
+                  @for (child of item.children; track child) {
+                    <li>
+                      <a class="nav-link sub-link" [routerLink]="child.route" routerLinkActive="active-child">
                         <span class="nav-text">{{ child.name }}</span>
-                    </a>
-                </li>
-              </ul>
-            </li>
-          </ng-container>
+                      </a>
+                    </li>
+                  }
+                </ul>
+              </li>
+            }
+          }
         </ul>
       </nav>
 
@@ -70,7 +75,7 @@
         <router-outlet></router-outlet>
       </main>
     </mat-sidenav-content>
-    
+
   </mat-sidenav-container>
 
 </div>
