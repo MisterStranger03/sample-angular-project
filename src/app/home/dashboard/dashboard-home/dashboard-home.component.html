@@ -1,0 +1,15 @@
+<div class="page-container">
+  <h1>Dashboard</h1>
+
+  <section *ngFor="let section of dashboardSections" class="dashboard-section">
+    <h2>{{ section.title }}</h2>
+    <div class="card-grid">
+      <div *ngFor="let card of section.cards" class="dashboard-card" mat-ripple (click)="navigateTo(card.route)">
+        <div class="card-icon-wrapper">
+          <mat-icon>{{ card.icon }}</mat-icon>
+        </div>
+        <span class="card-title">{{ card.title }}</span>
+      </div>
+    </div>
+  </section>
+</div>

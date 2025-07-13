@@ -1,0 +1,68 @@
+:host {
+  display: block;
+}
+
+.page-container {
+  /* This container uses the same padding as your other pages */
+  padding: 24px 30px; 
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 24px;
+}
+.breadcrumb .mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: #888;
+}
+.breadcrumb .active {
+  color: #111;
+  font-weight: 600;
+}
+
+.form-card {
+  background: white;
+  padding: 32px;
+  border-radius: 8px;
+  border: 1px solid #EAEFF5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* Make a form field span both columns */
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* Makes sure mat-form-fields fill their grid cells */
+mat-form-field {
+  width: 100%;
+}

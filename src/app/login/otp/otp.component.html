@@ -1,0 +1,50 @@
+<div class="login-page-container">
+
+  <mat-card class="login-card">
+    <mat-card-content>
+
+      <img 
+        class="illustration" 
+        src="assets/nexus-logo.png" 
+        alt="Nexus Platform Illustration">
+      
+      <div class="logo">
+        <span class="logo-check">V</span>
+        <span>Nexus</span>
+      </div>
+      <p class="tagline">We've sent OTP at {{email}}</p>
+
+      <form class="login-form" (ngSubmit)="handleOtpSubmit()" #loginForm="ngForm">
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Enter OTP</mat-label>
+          <input matInput type="password"
+           placeholder="******"
+           required
+           [(ngModel)]="otp"
+           maxlength="6"
+            minlength="6"
+           name="otp"
+           >
+          <mat-icon matSuffix>person_outline</mat-icon>
+        </mat-form-field>
+
+         <div class="otp-actions" >
+    <a >Change Email Id</a>
+    <span >
+      Resend OTP 
+      <span class="timer" *ngIf="timer > 0" >in {{timer}} second</span>
+      <a class="timer-reset" *ngIf="timer === 0"  (click)="resendOtp()">Resend</a>
+    </span>
+  </div>
+
+        <button mat-raised-button class="submit-btn full-width" type="submit" [disabled]="timer === 0">
+          Proceed
+        </button>
+
+      </form>
+      
+    </mat-card-content>
+  </mat-card>
+
+</div>

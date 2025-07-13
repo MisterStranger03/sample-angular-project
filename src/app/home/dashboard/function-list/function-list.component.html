@@ -1,0 +1,76 @@
+<div class="page-container">
+  <div class="breadcrumb">
+    <span routerLink="dashboard" style="cursor:pointer">Dashboard</span>
+    <mat-icon>chevron_right</mat-icon>
+    <span class="active">Function</span>
+  </div>
+
+  <div class="page-header-card">
+    <div class="header-top-row">
+      <div [formGroup]="filterForm" class="filter-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Function Code</mat-label>
+          <input matInput formControlName="functionCode" placeholder="Enter Code">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Function Name</mat-label>
+          <input matInput formControlName="functionName" placeholder="Enter Name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status">
+            <mat-option>All</mat-option>
+            <mat-option value="Active">Active</mat-option>
+            <mat-option value="Inactive">Inactive</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="action-buttons-header">
+        <button mat-stroked-button class="header-btn" routerLink="add">Add Function</button>
+        <button mat-stroked-button class="header-btn" routerLink="attributes">Add Attributes</button>
+        <button mat-stroked-button class="header-btn" routerLink="approval">Approval / Rejection</button>
+      </div>
+    </div>
+    
+    <div class="filter-actions">
+        <button mat-flat-button class="clear-btn" (click)="clearFilters()">Clear Filters</button>
+        <button mat-flat-button class="search-btn" (click)="search()">Search</button>
+    </div>
+  </div>
+
+
+  <div *ngIf="dataSource.data.length>0" class="table-container-card">
+    <h3>Functions List</h3>
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="functionCode">
+        <th mat-header-cell *matHeaderCellDef> Function Code </th>
+        <td mat-cell *matCellDef="let element"> {{element.functionCode}} </td>
+      </ng-container>
+      <ng-container matColumnDef="functionName">
+        <th mat-header-cell *matHeaderCellDef> Function Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.functionName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element">
+          <span class="status-pill" [ngClass]="element.status.toLowerCase()">{{element.status}}</span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="action-header"> Action </th>
+        <td mat-cell *matCellDef="let element" class="action-cell">
+          <button mat-stroked-button class="action-btn edit" (click)="onAction('Edit', element)">Edit</button>
+          <button mat-stroked-button class="action-btn view" (click)="onAction('View', element)">View</button>
+          <button mat-stroked-button class="action-btn delete" (click)="onAction('Delete', element)">Delete</button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator 
+     *ngIf="dataSource.data.length > 0"
+     [pageSize]="5"
+     [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

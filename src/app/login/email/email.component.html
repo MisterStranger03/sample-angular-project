@@ -1,0 +1,40 @@
+<!-- This main container centers the card on the page -->
+<div class="login-page-container">
+
+  <mat-card class="login-card">
+    <mat-card-content>
+
+      <img 
+        class="illustration" 
+        src="assets/nexus-logo.png" 
+        alt="Nexus Platform Illustration">
+      
+      <div class="logo">
+        <span class="logo-check">V</span>
+        <span>Nexus</span>
+      </div>
+      <p class="tagline">Hub for your application Admin needs</p>
+
+      <form class="login-form" (ngSubmit)="handleLogin()" #loginForm="ngForm">
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Your Email Address</mat-label>
+          <input matInput type="email"
+           placeholder="abc@gmail.com"
+           required
+           [(ngModel)]="email"
+           name="email"
+           >
+          <mat-icon matSuffix>person_outline</mat-icon>
+        </mat-form-field>
+
+        <button mat-raised-button class="submit-btn full-width" type="submit" >
+          Get OTP
+        </button>
+
+      </form>
+      
+    </mat-card-content>
+  </mat-card>
+
+</div>

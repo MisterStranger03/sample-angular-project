@@ -1,0 +1,72 @@
+<div class="page-container">
+  <div class="breadcrumb">
+    <span routerLink="dashboard" style="cursor: pointer">Dashboard</span>
+    <mat-icon>chevron_right</mat-icon>
+    <span class="active">Add Attributes</span>
+  </div>
+
+  <div class="form-card">
+    <form [formGroup]="attributesForm" (ngSubmit)="onAdd()">
+      
+      <div class="form-header">
+        <mat-form-field appearance="outline" class="entity-select">
+          <mat-label>Select Entity</mat-label>
+          <mat-select formControlName="selectEntity">
+            <mat-option value="Function">Function</mat-option>
+            <mat-option value="User">User</mat-option>
+            <mat-option value="Product">Product</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-flat-button color="primary" type="button" (click)="addNewAttributeField()">Add Attribute</button>
+      </div>
+      
+      <div class="form-grid">
+        <mat-form-field appearance="outline">
+          <mat-label>Attribute 1</mat-label>
+          <input matInput formControlName="attribute1">
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Attribute 2</mat-label>
+          <input matInput formControlName="attribute2">
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Attribute 3</mat-label>
+          <input matInput formControlName="attribute3">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Attribute 4</mat-label>
+          <input matInput formControlName="attribute4">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Attribute 5</mat-label>
+          <input matInput formControlName="attribute5">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Attribute 6</mat-label>
+          <input matInput formControlName="attribute6">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Attribute 7 *</mat-label>
+          <input matInput formControlName="attribute7">
+          <button mat-icon-button matSuffix type="button" aria-label="Remove attribute field">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <div class="form-actions">
+        <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+        <button mat-flat-button color="primary" type="submit">Add</button>
+      </div>
+
+    </form>
+    
+    <mat-paginator [pageSizeOptions]="[5, 10, 25]" [pageSize]="10" [length]="100" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

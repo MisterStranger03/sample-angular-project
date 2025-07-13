@@ -1,0 +1,136 @@
+:host {
+  display: block; 
+  height: 100vh; 
+  position: relative; 
+  overflow: hidden; 
+  background-color: #EBF0FF;
+}
+
+:host::before,
+:host::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    min-width: 300vw;
+    min-height: 300vw;
+    background-color: #F7F9FB;
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    z-index: 0;
+}
+
+:host::before {
+    bottom: 15vh;
+    border-radius: 45%;
+    animation-duration: 25s;
+}
+
+:host::after {
+    bottom: 12vh;
+    opacity: 0.5;
+    border-radius: 47%;
+    animation-duration: 30s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, 0) rotate(360deg);
+    }
+}
+
+
+
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+  padding: 16px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.login-card {
+  max-width: 420px;
+  width: 100%;
+  padding: 24px;
+  border-radius: 16px !important;
+}
+
+:host ::ng-deep .mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 !important;
+}
+
+.illustration {
+  max-width: 320px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-check {
+  font-size: 32px;
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+.tagline {
+  color: #64748b;
+  margin-top: 8px;
+  margin-bottom: 32px;
+  font-size: 1rem;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-form-field {
+  margin-bottom: 16px;
+}
+
+.submit-btn {
+  background-color: #334155;
+  color: white;
+  padding: 20px 0;
+  line-height: 1;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.otp-actions {
+  display: flex; justify-content: space-between; margin-bottom: 16px; }
+
+.otp-actions a {
+  font-size: 13px; color: #2d5be3; cursor: pointer; }
+
+.otp-actions span {
+ font-size: 13px; }
+
+.timer {
+  color: #2d5be3; }
+
+.timer-reset {
+  color: #2d5be3; cursor: pointer; }

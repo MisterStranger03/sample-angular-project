@@ -1,0 +1,137 @@
+/* Color variables for this component */
+:host {
+  --blue-primary: #3f51b5;
+  --blue-light-bg: #e8eaf6;
+  --green-primary: #28a745;
+  --green-light-bg: #eaf6ec;
+  --red-primary: #dc3545;
+  --red-light-bg: #fdebec;
+  --button-border: #ced4da;
+  --card-border: #EAEFF5;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 16px;
+}
+.breadcrumb .mat-icon { font-size: 20px; width: 20px; height: 20px; }
+.breadcrumb .active { color: #111; font-weight: 500; }
+
+/* The main filter card */
+.page-header-card {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  margin-bottom: 24px;
+}
+
+.header-top-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.filter-container { 
+  display: flex; 
+  gap: 16px;
+  flex-grow: 1;
+}
+
+.action-buttons-header { 
+  display: flex; 
+  gap: 12px; 
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.header-btn {
+  border-color: var(--button-border);
+  color: #555;
+}
+
+.filter-actions { 
+  display: flex; 
+  gap: 12px; 
+  justify-content: flex-end; 
+}
+
+.clear-btn {
+    background-color: #6c757d; /* A neutral gray instead of red */
+    color: white;
+}
+.clear-btn.mat-warn { /* If you must use color="warn" */
+    background-color: var(--red-primary);
+}
+.search-btn {
+    background-color: #007bff; /* Primary action blue */
+    color: white;
+}
+
+/* Form field styling */
+.mat-form-field { width: 100%; }
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #e0e0e0 !important;
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: var(--blue-primary) !important;
+}
+
+/* The main table card */
+.table-container-card {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+}
+.table-container-card h3 { 
+    margin: -8px 0 16px 0; 
+    font-weight: 600; 
+}
+
+/* Table styles */
+table { width: 100%; }
+.mat-header-cell {
+  background-color: #f8f9fa;
+  color: #555;
+  font-weight: 600;
+  font-size: 13px;
+}
+.mat-cell {
+  color: #333;
+  font-size: 14px;
+  border-bottom-color: var(--card-border);
+}
+
+.action-header { text-align: center; }
+.action-cell { text-align: center; }
+
+
+.status-pill {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-weight: 500;
+  font-size: 12px;
+}
+.status-pill.active { background-color: lightgreen; color: green; }
+.status-pill.inactive { background-color: lightcoral; color: red; }
+
+
+.action-btn {
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin: 0 4px;
+  min-width: auto;
+  line-height: 20px;
+}
+.action-btn.edit 
+    { 
+    border-color: blue;
+     color: blue;
+    }
+.action-btn.view { border-color: green; color: green; }
+.action-btn.delete { border-color: red; color: red; }

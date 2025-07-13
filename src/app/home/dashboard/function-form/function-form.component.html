@@ -1,0 +1,79 @@
+<div class="page-container">
+  <div class="breadcrumb">
+    <span routerLink="dashboard" style="cursor:pointer">Dashboard</span>
+    <mat-icon>chevron_right</mat-icon>
+    <span routerLink="/dashboard/function" style="cursor:pointer">Function</span>
+    <mat-icon>chevron_right</mat-icon>
+    <span class="active">Add</span>
+  </div>
+
+  <div class="form-card">
+    <form [formGroup]="functionForm" (ngSubmit)="onSubmit()">
+      
+      
+      <div class="form-grid">
+        <mat-form-field appearance="outline">
+          <mat-label>Function Code</mat-label>
+          <input matInput formControlName="functionCode" placeholder="Enter Function Code" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Function Name</mat-label>
+          <input matInput formControlName="functionName" placeholder="Enter Function Name" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" required>
+            <mat-option value="Active">Active</mat-option>
+            <mat-option value="Inactive">Inactive</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" placeholder="Enter your Description"></textarea>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Effective From</mat-label>
+          <input matInput [matDatepicker]="fromPicker" formControlName="effectiveFrom">
+          <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+          <mat-datepicker #fromPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Effective Till</mat-label>
+          <input matInput [matDatepicker]="tillPicker" formControlName="effectiveTill">
+          <mat-datepicker-toggle matSuffix [for]="tillPicker"></mat-datepicker-toggle>
+          <mat-datepicker #tillPicker></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Head Emp</mat-label>
+          <input matInput formControlName="headEmp" placeholder="Enter Head Employee">
+        </mat-form-field>
+      </div>
+
+      <h3 class="section-title">Additional Attributes Value</h3>
+      
+      <div class="form-grid">
+        <mat-form-field appearance="outline">
+          <mat-label>First</mat-label>
+          <input matInput formControlName="attributeFirst">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Second</mat-label>
+          <input matInput formControlName="attributeSecond">
+        </mat-form-field>
+      </div>
+
+      <div class="form-actions">
+        <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+        <button mat-flat-button color="primary" type="submit">Save Function</button>
+      </div>
+
+    </form>
+  </div>
+</div>

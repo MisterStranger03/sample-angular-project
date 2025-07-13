@@ -1,0 +1,68 @@
+:host {
+  display: block;
+}
+
+.page-container {
+  padding: 24px 30px; 
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 24px;
+}
+.breadcrumb .mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: #888;
+}
+.breadcrumb .active {
+  color: #111;
+  font-weight: 600;
+}
+
+.form-card {
+  background: white;
+  padding: 32px;
+  border-radius: 8px;
+  border: 1px solid #EAEFF5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.entity-select {
+  max-width: 350px;
+  width: 100%;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-paginator {
+  margin: 24px -32px -32px -32px;
+}
